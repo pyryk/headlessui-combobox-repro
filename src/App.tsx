@@ -5,7 +5,8 @@ let people = ['Wade Cooper', 'Arlene Mccoy', 'Devon Webb', 'Tom Cook']
 
 // Repro: the value is changed from outside while the Combobox input is not focused. The input
 // should keep its current focus state (the focus stays on the button). Before the fix, the caret
-// syncing logic ran for the *unfocused* input and `setSelectionRange` could pull focus into it.
+// syncing logic runs for the *unfocused* input and calling `setSelectionRange` causes 
+// Chrome/VoiceOver to announce the value.
 export default function Home() {
   let [person, setPerson] = useState(people[0])
 
